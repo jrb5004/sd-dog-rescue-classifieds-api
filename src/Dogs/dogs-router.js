@@ -39,7 +39,7 @@ dogsRouter
           error: { message: `Missing '${key}' in request body` }
         })
         //newDog.regionid = regionid; 
-    try {
+
     DogsService.insertDog(
       req.app.get('db'),
       newDog
@@ -51,8 +51,6 @@ dogsRouter
           .json(serializeDog(dog))
       })
       .catch(next)
-    }
-      catch (error) { console.log(error) }
   })
 
 
