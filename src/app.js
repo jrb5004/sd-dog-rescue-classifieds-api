@@ -4,6 +4,9 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
+const regionsRouter = require('./Regions/regions-router')
+const dogsRouter = require('./Dogs/dogs-router')
+
 
 const app = express()
 
@@ -14,6 +17,20 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
+
+app.use(function validateBearerToken(req, res, next) {
+  const apiToken = process.env.API_TOKEN
+  const authToken = req.get('Authorization')
+
+  if (!authToken || authToken.split(' ')[1] !== apiToken) {
+    return res.status(401).json({ error: 'Unauthorized request' })
+  }
+  next()
+})
+
+app.use('/api/regions', regionsRouter)
+
+app.use('/api/dogs', dogsRouter)
 
 app.get('/', (req, res) => {
     res.send('Hello, world!')
