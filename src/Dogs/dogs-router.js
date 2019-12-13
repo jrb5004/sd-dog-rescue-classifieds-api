@@ -16,7 +16,6 @@ const serializeDog = dog => ({
   regionid: dog.regionid,
   story: xss(dog.story),
   email: xss(dog.email),
-  imageurl: xss(dog.imageurl)
 })
 
 dogsRouter
@@ -30,8 +29,8 @@ dogsRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, breed, size, gender, age, regionid, story, email, imageurl } = req.body
-    const newDog = { name, breed, size, gender, age, regionid, story, email, imageurl }
+    const { name, breed, size, gender, age, regionid, story, email } = req.body
+    const newDog = { name, breed, size, gender, age, regionid, story, email }
 
     for (const [key, value] of Object.entries(newDog)) 
       if (value == null) 
@@ -78,8 +77,8 @@ dogsRouter
       res.json(serializeDog(res.dog))
   })
   .patch(jsonParser, (req, res, next) => {
-    const { name, breed, size, gender, age, regionid, story, email, imageurl } = req.body
-    const dogToUpdate = { name, breed, size, gender, age, regionid, story, email, imageurl }
+    const { name, breed, size, gender, age, regionid, story, email } = req.body
+    const dogToUpdate = { name, breed, size, gender, age, regionid, story, email }
 
     for (const [key, value] of Object.entries(dogToUpdate)) 
       if (value == null) 

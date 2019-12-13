@@ -9,5 +9,4 @@ CREATE TABLE dogs (
         REFERENCES regions(id) ON DELETE CASCADE,
     story TEXT NOT NULL,
     email TEXT NOT NULL,
-    imageurl TEXT NOT NULL
 );
