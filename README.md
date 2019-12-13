@@ -1,26 +1,26 @@
-# Express Boilerplate!
+# The Cocktail Cookbook
+Link to live app: https://sd-dog-rescue.jrb5004.now.sh/
 
-This is a boilerplate project used for starting new projects!
+## App Summary
+A full stack app for the large community of dog lovers in the San Diego area to browse listings of adoptable dogs in their region, contact their current caretakers about adption opportunities, and post/edit their own listings.
 
-## Set up
+## API Documentation 
+- API Base URL: https://nameless-sierra-59942.herokuapp.com
+  - Regions Endpoints:
+    - '/api/regions'
+      - Accepts GET requests to return data on all regions in the database.
+    - '/api/regions/:region_id'
+      - Accepts GET requests to return data on a specific region.  Include the region ID as a request parameter.
+  - Dogs Endpoints
+    - '/api/dogs'
+      - Accepts GET requests to return all dog listings in the database.
+      - Accepts POST requests to submit new listings.  Name, breed, size, gender, age, regionid, story, and email are all required body parameters.
+    - '/api/dogs/:dog_id
+      - Accepts GET requests to return data on a specific dog listing.  Include the dog ID as a request parameter.
+      - Appecpts PATCH requests to allow for updates to specific rows of data in database.  Name, breed, size, gender, age, regionid, story, and email are required body parameters.
+    
+    
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
-
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+## Technologies Used
+JavaScript/React/CSS/Node.js/Express/PostreSQL  (This repository is for the server/Node.JS files associated with this project.  Please see my 'sd-dog-rescue-classifieds' repository for the front end JavaScript/React files.)
