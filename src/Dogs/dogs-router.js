@@ -36,8 +36,7 @@ dogsRouter
       if (value == null) 
         return res.status(400).json({
           error: { message: `Missing '${key}' in request body` }
-        })
-        //newDog.regionid = regionid; 
+        }) 
 
     DogsService.insertDog(
       req.app.get('db'),
@@ -51,9 +50,7 @@ dogsRouter
       })
       .catch(next)
   })
-
-
-  
+ 
 
 dogsRouter
   .route('/:dog_id')
