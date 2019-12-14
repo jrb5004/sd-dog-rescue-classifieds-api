@@ -98,6 +98,32 @@ describe('Dogs Endpoints', function() {
         })
       })
     })
+
+    describe(`POST /api/dogs`, () => {
+      context('Given there are regions in the Regions table', () => {
+        let body = {
+            id: 7,
+            name: 'First Two',
+            breed: 'breed two',
+            size: 'size two',
+            gender: 'gender two',
+            age: 'age two',
+            regionid: 3,
+            story: 'story two',
+            email: 'email two'
+        }
+     
+        it('respond with 201 created', () => {
+          return supertest(app)
+            .post('/api/dogs')
+            .send(body)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+            .expect(201)
+        })
+      })
+    })
     
     describe(`GET /api/dogs/:dog_id`, () => {
         context('Given there are dogs in the database', () => {
@@ -116,6 +142,36 @@ describe('Dogs Endpoints', function() {
               .get(`/api/dogs/${dogId}`)
               .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
               .expect(200, expectedListing)
+          })
+        })
+      })
+
+      describe(`PATCH /api/dogs/:dog_id`, () => {
+        context('Given there are dogs in the database', () => {
+        const testDogs = makeDogsArray()
+          beforeEach('insert dogs', () => {
+            return db
+              .into('dogs')
+              .insert(testDogs)
+          })
+          let body = {
+            name: 'Edited name',
+            breed: 'Edited breed',
+            size: 'Edited size',
+            gender: 'Edited gender',
+            age: 'Edited age',
+            regionid: 3,
+            story: 'Edited story',
+            email: 'Edited email'
+        }
+    
+          it('responds with 200', () => {
+            const dogId = 2
+            return supertest(app)
+              .patch(`/api/dogs/${dogId}`)
+              .send(body)
+              .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+              .expect(200)
           })
         })
       })
