@@ -1,4 +1,4 @@
-# The Cocktail Cookbook
+# San Diego County Dog Rescue Classifieds
 Link to live app: https://sd-dog-rescue.jrb5004.now.sh/
 
 ## App Summary
