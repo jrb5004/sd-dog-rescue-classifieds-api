@@ -2,7 +2,7 @@
 Link to live app: https://sd-dog-rescue.jrb5004.now.sh/
 
 ## App Summary
-A full stack app for the large community of dog lovers in the San Diego area to browse listings of adoptable dogs in their region, contact their current caretakers about adption opportunities, and post/edit their own listings.
+A full stack app for the large community of dog lovers in the San Diego area to browse listings of adoptable dogs in their region, contact their current caretakers about adoption opportunities, and post/edit their own listings.
 
 ## API Documentation 
 - API Base URL: https://nameless-sierra-59942.herokuapp.com
